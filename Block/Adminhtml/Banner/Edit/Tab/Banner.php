@@ -261,7 +261,7 @@ class Banner extends \Magento\Backend\Block\Widget\Form\Generic implements \Mage
         $timeFormat = 'h:mm a';
         if($dataObj->hasData('start_time')) {
 
-            $datetime = $this->dateTime->date($dataObj->getData('start_time'), null, $this->_localeDate->getConfigTimezone());
+            $datetime = $this->dateTime->date(new \DateTime($dataObj->getData('start_time')), null, $this->_localeDate->getConfigTimezone());
 //            $datetime = new \DateTime($dataObj->getData('start_time'));
 
             $dataObj->setData('start_time',$datetime);
@@ -269,7 +269,7 @@ class Banner extends \Magento\Backend\Block\Widget\Form\Generic implements \Mage
         }
 
         if($dataObj->hasData('end_time')) {
-            $datetime = $this->dateTime->date($dataObj->getData('end_time'), null, $this->_localeDate->getConfigTimezone());
+            $datetime = $this->dateTime->date(new \DateTime($dataObj->getData('end_time')), null, $this->_localeDate->getConfigTimezone());
 //            $datetime = new \DateTime($dataObj->getData('end_time'));
             $dataObj->setData('end_time', $datetime);
         }
