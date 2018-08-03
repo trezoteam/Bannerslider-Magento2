@@ -106,7 +106,7 @@ class Save extends \Magestore\Bannerslider\Controller\Adminhtml\Banner
 
             $data['start_time'] = $localeDate->date($data['start_time'], null, 'UTC')->format('Y-m-d H:i');
             $data['end_time'] = $localeDate->date($data['end_time'],  null, 'UTC')->format('Y-m-d H:i');
-            
+
             $model->setData($data)
                 ->setStoreViewId($storeViewId);
 
