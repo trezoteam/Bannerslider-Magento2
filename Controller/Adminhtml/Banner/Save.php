@@ -100,12 +100,10 @@ class Save extends \Magestore\Bannerslider\Controller\Adminhtml\Banner
                 }
             }
 
-            /** @var \Magento\Framework\Stdlib\DateTime\TimezoneInterface $localeDate */
-//            $localeDate = $this->_objectManager->get('Magento\Framework\Stdlib\DateTime\TimezoneInterface');
             $localeDate = $this->_objectManager->get('Magento\Framework\Stdlib\DateTime\Timezone');
 
-            $data['start_time'] = $localeDate->date($data['start_time'], null, 'UTC')->format('Y-m-d H:i');
-            $data['end_time'] = $localeDate->date($data['end_time'],  null, 'UTC')->format('Y-m-d H:i');
+            $data['start_time'] = $localeDate->date(new \DateTime($data['start_time']), null, $localeDate->getConfigTimezone())->format('Y-m-d H:i');
+            $data['end_time'] = $localeDate->date(new \DateTime($data['end_time']),  null, $localeDate->getConfigTimezone())->format('Y-m-d H:i');
 
             $model->setData($data)
                 ->setStoreViewId($storeViewId);
